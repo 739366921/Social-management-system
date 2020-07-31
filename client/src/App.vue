@@ -2,7 +2,9 @@
   <div id="app">
     <div class="home_page">
       <NavBar id="home_page_NavBar" />
-      <Landing id="home_page_Landing" />
+      <keep-alive>
+          <router-view></router-view>
+      </keep-alive>
       <Footer id="home_page_Footer"/>
     </div>
   </div>

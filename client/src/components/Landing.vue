@@ -9,8 +9,8 @@
             </h1>
             <p class="lead"> 线上社交零距离，让远在千里变得近在咫尺 !</p>
             <hr />
-            <a class="btn btn-lg btn-info mr-2">注册</a>
-            <a class="btn btn-lg btn-light text-dark">登录</a>
+            <router-link class="btn btn-lg btn-info mr-2" to="/register">注册</router-link>
+            <router-link class="btn btn-lg btn-light text-dark" to="/login">登录</router-link>
           </div>
         </div>
       </div>
