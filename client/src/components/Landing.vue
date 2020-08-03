@@ -39,8 +39,7 @@ img {
   background-size:cover ;
   background-position: center;
   height: 100vh;
-  margin-top: -25px;
-  margin-bottom: -50px;
+ ;
 }
 
 .landing-inner {
