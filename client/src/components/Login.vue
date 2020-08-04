@@ -13,7 +13,9 @@
               placeholder="邮箱地址"
               class="form-control form-control-lg"
               v-model="user.email"
+              :class="{'is-invalid':errors.email}"
             />
+            <div v-if="errors.email" class="invalid-feedback">{{errors.email}}</div>
           </div>
           <div class="form-group">
             <input
@@ -22,7 +24,9 @@
               placeholder="密码"
               class="form-control form-control-lg"
               v-model="user.password"
+              :class="{'is-invalid':errors.password}"
             />
+            <div v-if="errors.password" class="invalid-feedback">{{errors.password}}</div>
           </div>
           <input type="submit" class="btn btn-info btn-block mt-4 mb-4" />
         </form>
@@ -39,13 +43,24 @@ export default {
       user: {
         email: "",
         password: ""
-      }
+      },
+      errors:{}
     };
   },
   methods: {
     submit() {
-      console.log(this.user.email);
-      console.log(this.user.password);
+  // console.log(this.user.email);
+      // console.log(this.user.password);
+      this.$axios
+        .post("api/user/login", this.user)
+        .then(res => {
+          console.log(res.data);
+        })
+        .catch(err => {
+          if (err.response.data) {
+            this.errors = err.response.data; //要加response才会返回错误对象
+          }
+        });
     }
   }
 };

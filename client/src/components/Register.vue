@@ -13,7 +13,9 @@
               placeholder="用户名"
               class="form-control form-control-lg"
               v-model="newUser.name"
+              :class="{'is-invalid':errors.name}"
             />
+            <div v-if="errors.name" class="invalid-feedback">{{errors.name}}</div>
           </div>
           <div class="form-group">
             <input
@@ -22,7 +24,10 @@
               placeholder="邮箱地址"
               class="form-control form-control-lg"
               v-model="newUser.email"
+              :class="{'is-invalid':errors.email}"
             />
+            <div v-if="errors.email" class="invalid-feedback">{{errors.email}}</div>
+
             <div class="text-muted small">我们使用了gravatar全球公认头像, 如果需要有头像显示, 请使用在gravatar注册的邮箱</div>
           </div>
           <div class="form-group">
@@ -32,7 +37,9 @@
               placeholder="密码"
               class="form-control form-control-lg"
               v-model="newUser.password"
+              :class="{'is-invalid':errors.password}"
             />
+            <div v-if="errors.password" class="invalid-feedback">{{errors.password}}</div>
           </div>
           <div class="form-group">
             <input
@@ -40,8 +47,10 @@
               name="password2"
               placeholder="确认密码"
               class="form-control form-control-lg"
-              v-model="newUser.password_again"
+              v-model="newUser.password2"
+              :class="{'is-invalid':errors.password2}"
             />
+            <div v-if="errors.password2" class="invalid-feedback">{{errors.password2}}</div>
           </div>
           <input type="submit" class="btn btn-info btn-block mt-4 mb-4" />
         </form>
@@ -59,17 +68,28 @@ export default {
         name: "",
         email: "",
         password: "",
-        password_again: ""
+        password2: ""
       },
-      error: ""
+      errors: ""
     };
   },
   methods: {
     submit() {
-      console.log(this.newUser.name);
-      console.log(this.newUser.email);
-      console.log(this.newUser.password);
-      console.log(this.newUser.password_again);
+      // console.log(this.newUser.name);
+      // console.log(this.newUser.email);
+      // console.log(this.newUser.password);
+      // console.log(this.newUser.password2);
+
+      this.$axios
+        .post("api/user/register", this.newUser)
+        .then(res => {
+          console.log(res.data);
+        })
+        .catch(err => {
+          if (err.response.data) {
+            this.errors = err.response.data; //要加response才会返回错误对象
+          }
+        });
     }
   }
 };
