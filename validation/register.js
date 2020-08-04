@@ -46,7 +46,7 @@ module.exports=function validatorRegisterInput(data){//data是外面传进来的
     }  
     if(validator.isEmpty(data.password2))
     {
-        errors.password2='密码2不能为空'
+        errors.password2='确认密码不能为空'
     }
     
     

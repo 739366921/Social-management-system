@@ -79,7 +79,7 @@ export default {
       // console.log(this.newUser.email);
       // console.log(this.newUser.password);
       // console.log(this.newUser.password2);
-
+      console.log(this.$store.getters.isAuthenticated);
       this.$axios
         .post("api/user/register", this.newUser)
         .then(res => {

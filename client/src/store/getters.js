@@ -1,2 +1,2 @@
-// export const isAuthenticated = state => state.isAuthenticated;
-// export const user = state => state.user;
+export const isAuthenticated = state => {return state.isAuthenticated};
+export const user = state => {return state.user};
