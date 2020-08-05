@@ -68,9 +68,9 @@ export default {
         name: "",
         email: "",
         password: "",
-        password2: ""
+        password2: "",
       },
-      errors: ""
+      errors: "",
     };
   },
   methods: {
@@ -79,19 +79,28 @@ export default {
       // console.log(this.newUser.email);
       // console.log(this.newUser.password);
       // console.log(this.newUser.password2);
-      console.log(this.$store.getters.isAuthenticated);
+      // console.log(this.$store.getters.isAuthenticated);
       this.$axios
         .post("api/user/register", this.newUser)
-        .then(res => {
-          console.log(res.data);
+        .then((res) => {
+          // console.log(res.data);
+
+          //进行mutations操作(同步)
+          // this.$store.commit('setUser',res.data)
+
+          //进行actions异步操作分发
+          this.$store.dispatch("setUser", res.data);
+
+          //成功后页面跳转
+          this.$router.push("/login");
         })
-        .catch(err => {
+        .catch((err) => {
           if (err.response.data) {
             this.errors = err.response.data; //要加response才会返回错误对象
           }
         });
-    }
-  }
+    },
+  },
 };
 </script>
 
