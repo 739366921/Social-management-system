@@ -3,7 +3,7 @@
   <div class="Login">
     <div class="box">
       <div class="content m-auto col-lg-11">
-        <h1 class="display-5 text-center ">登陆</h1>
+        <h1 class="display-5 text-center">登陆</h1>
         <p class="lead text-center">使用已有的账户登录</p>
         <form @submit.prevent="submit" autocomplete="off" method="post">
           <div class="form-group">
@@ -42,27 +42,28 @@ export default {
     return {
       user: {
         email: "",
-        password: ""
+        password: "",
       },
-      errors:{}
+      errors: {},
     };
   },
   methods: {
     submit() {
-  // console.log(this.user.email);
+      // console.log(this.user.email);
       // console.log(this.user.password);
       this.$axios
         .post("api/user/login", this.user)
-        .then(res => {
-          console.log(res.data);
+        .then((res) => {
+          const { token } = res.data;
+          window.localStorage.setItem("jwtToken", token);
         })
-        .catch(err => {
+        .catch((err) => {
           if (err.response.data) {
             this.errors = err.response.data; //要加response才会返回错误对象
           }
         });
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -77,11 +78,11 @@ export default {
   align-items: center;
 }
 .box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 506.66px;
-    height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 506.66px;
+  height: 400px;
   border-radius: 15px;
   background: rgba(255, 255, 255, 0.9);
 }
