@@ -23,8 +23,9 @@
           </li>
           <li class="nav-item">
             <a @click.prevent="logOut" v-show="isLogin" class="nav-link">
-              <img :src="user.avatar" :alt="user.name" class="rounded-circle headerImg">
-              退出</a>
+              <img :src="user.avatar" :alt="user.name" class="rounded-circle headerImg" />
+              退出
+            </a>
           </li>
         </ul>
       </div>
@@ -46,9 +47,9 @@ export default {
         return false;
       }
     },
-    user(){
-    return  this.$store.getters.user
-    }
+    user() {
+      return this.$store.getters.user;
+    },
   },
   methods: {
     logOut() {
@@ -68,7 +69,7 @@ export default {
 a {
   cursor: pointer;
 }
-.headerImg{
+.headerImg {
   width: 30px;
   margin-right: 5px;
 }
