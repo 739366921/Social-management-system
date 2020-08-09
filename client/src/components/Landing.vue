@@ -1,16 +1,15 @@
 <template>
-    <!-- Landing -->
+  <!-- Landing -->
   <div class="landing">
     <div class="dark-overlay landing-inner text-light">
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
-            <h1 class="display-3  mb-4">社交管理系统
-            </h1>
-            <p class="lead"> 线上社交零距离，让远在千里变得近在咫尺 !</p>
+            <h1 class="display-3 mb-4">社交管理系统</h1>
+            <p class="lead">线上社交零距离，让远在千里变得近在咫尺 !</p>
             <hr />
-            <router-link class="btn btn-lg btn-info mr-2" to="/register">注册</router-link>
-            <router-link class="btn btn-lg btn-light text-dark" to="/login">登录</router-link>
+            <router-link v-show="!isLogin" class="btn btn-lg btn-info mr-2" to="/register">注册</router-link>
+            <router-link v-show="!isLogin" class="btn btn-lg btn-light text-dark" to="/login">登录</router-link>
           </div>
         </div>
       </div>
@@ -19,13 +18,21 @@
 </template>
 
 <script>
- export default {
-   name: 'Landing',
-   data () {
-     return {
-     }
-   }
- }
+export default {
+  name: "Landing",
+  data() {
+    return {};
+  },
+  computed: {
+    isLogin() {
+      if (this.$store.getters.isAuthenticated) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -35,11 +42,10 @@ img {
 
 .landing {
   position: relative;
-  background: url('../assets/home_page.jpg') no-repeat;
-  background-size:cover ;
+  background: url("../assets/home_page.jpg") no-repeat;
+  background-size: cover;
   background-position: center;
   height: 100vh;
- ;
 }
 
 .landing-inner {
@@ -55,9 +61,8 @@ img {
   height: 100%;
 }
 
-.container{
+.container {
   position: center;
-
 }
 /* .card-form {
   opacity: 0.9;

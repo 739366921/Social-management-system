@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import jwt_decode from "jwt-decode";
 export default {
   name: "Login",
   data() {
@@ -56,12 +57,30 @@ export default {
         .then((res) => {
           const { token } = res.data;
           window.localStorage.setItem("jwtToken", token);
+
+          //解析token
+          const decoded = jwt_decode(token);
+
+          //进行分发actions更改store的state
+          this.$store.dispatch("setIsAuthenticated", !this.isEmpty(decoded));
+          this.$store.dispatch("setUser", decoded);
+
+          //页面跳转
+          this.$router.push("./dashboard");
         })
         .catch((err) => {
           if (err.response.data) {
             this.errors = err.response.data; //要加response才会返回错误对象
           }
         });
+    },
+    isEmpty(value) {
+      return (
+        value === "undefinded" ||
+        value === "null" ||
+        (typeof value === "object" && Object.keys(value).length === 0) ||
+        (typeof value === "string" && value.trim().length === 0)
+      );
     },
   },
 };

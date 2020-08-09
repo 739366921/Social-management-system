@@ -16,10 +16,15 @@
 
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <router-link class="nav-link" to="/register">注册</router-link>
+            <router-link v-show="!isLogin" class="nav-link" to="/register">注册</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="login">登录</router-link>
+            <router-link v-show="!isLogin" class="nav-link" to="/login">登录</router-link>
+          </li>
+          <li class="nav-item">
+            <a @click.prevent="logOut" v-show="isLogin" class="nav-link">
+              <img :src="user.avatar" :alt="user.name" class="rounded-circle headerImg">
+              退出</a>
           </li>
         </ul>
       </div>
@@ -32,12 +37,39 @@ export default {
   name: "NavBar",
   data() {
     return {};
-  }
+  },
+  computed: {
+    isLogin() {
+      if (this.$store.getters.isAuthenticated) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    user(){
+    return  this.$store.getters.user
+    }
+  },
+  methods: {
+    logOut() {
+      //删除token
+      localStorage.removeItem("jwtToken");
+      //干掉请求头
+      this.$store.dispatch("setIsAuthenticated", false);
+      this.$store.dispatch("setUser", {});
+      //页面跳转
+      this.$router.push("/login");
+    },
+  },
 };
 </script>
 
 <style scoped>
 a {
   cursor: pointer;
+}
+.headerImg{
+  width: 30px;
+  margin-right: 5px;
 }
 </style>
