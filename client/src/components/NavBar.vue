@@ -16,6 +16,9 @@
 
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
+            <router-link v-show="isLogin" class="nav-link" to="/dashboard">Dashboard</router-link>
+          </li>
+          <li class="nav-item">
             <router-link v-show="!isLogin" class="nav-link" to="/register">注册</router-link>
           </li>
           <li class="nav-item">
