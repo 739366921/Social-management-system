@@ -6,52 +6,35 @@
         <h1 class="display-5 text-center mt-4">注册</h1>
         <p class="lead text-center">创建新的账户</p>
         <form @submit.prevent="submit" autocomplete="off" method="post">
-          <div class="form-group">
-            <input
-              type="text"
-              name="name"
-              placeholder="用户名"
-              class="form-control form-control-lg"
-              v-model="newUser.name"
-              :class="{'is-invalid':errors.name}"
-            />
-            <div v-if="errors.name" class="invalid-feedback">{{errors.name}}</div>
-          </div>
-          <div class="form-group">
-            <input
-              type="email"
-              name="email"
-              placeholder="邮箱地址"
-              class="form-control form-control-lg"
-              v-model="newUser.email"
-              :class="{'is-invalid':errors.email}"
-            />
-            <div v-if="errors.email" class="invalid-feedback">{{errors.email}}</div>
-
-            <div class="text-muted small">我们使用了gravatar全球公认头像, 如果需要有头像显示, 请使用在gravatar注册的邮箱</div>
-          </div>
-          <div class="form-group">
-            <input
-              type="password"
-              name="password"
-              placeholder="密码"
-              class="form-control form-control-lg"
-              v-model="newUser.password"
-              :class="{'is-invalid':errors.password}"
-            />
-            <div v-if="errors.password" class="invalid-feedback">{{errors.password}}</div>
-          </div>
-          <div class="form-group">
-            <input
-              type="password"
-              name="password2"
-              placeholder="确认密码"
-              class="form-control form-control-lg"
-              v-model="newUser.password2"
-              :class="{'is-invalid':errors.password2}"
-            />
-            <div v-if="errors.password2" class="invalid-feedback">{{errors.password2}}</div>
-          </div>
+          <TextField
+            type="text"
+            name="name"
+            placeholder="用户名"
+            v-model="newUser.name"
+            :error="errors.name"
+          />
+          <TextField
+            type="email"
+            name="email"
+            placeholder="邮箱地址"
+            v-model="newUser.email"
+            :error="errors.email"
+            info="我们使用了gravatar全球公认头像, 如果需要有头像显示, 请使用在gravatar注册的邮箱"
+          />
+          <TextField
+            type="password"
+            name="password"
+            placeholder="密码"
+            v-model="newUser.password"
+            :error="errors.password"
+          />
+          <TextField
+            type="password"
+            name="password2"
+            placeholder="确认密码"
+            v-model="newUser.password2"
+            :error="errors.password2"
+          />
           <input type="submit" class="btn btn-info btn-block mt-4 mb-4" />
         </form>
       </div>
@@ -60,6 +43,7 @@
 </template>
 
 <script>
+import TextField from "./common/TextFieldGroup";
 export default {
   name: "Register",
   data() {
@@ -73,6 +57,9 @@ export default {
       errors: "",
     };
   },
+  components: {
+    TextField,
+  },
   methods: {
     submit() {
       // console.log(this.newUser.name);
@@ -80,6 +67,7 @@ export default {
       // console.log(this.newUser.password);
       // console.log(this.newUser.password2);
       // console.log(this.$store.getters.isAuthenticated);
+      // console.log(this.newUser)
       this.$axios
         .post("api/user/register", this.newUser)
         .then((res) => {
