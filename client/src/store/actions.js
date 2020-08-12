@@ -5,3 +5,7 @@ export const setIsAuthenticated = ({ commit }, data) => {
 export const setUser = ({ commit }, data) => {
   commit("setUser", data);
 };
+
+export const setProfile = ({ commit }, data) => {
+  commit("setProfile", data);
+};

@@ -8,7 +8,8 @@ Vue.use(Vuex);
 
 const state = {
   isAuthenticated: false, // 是否授权
-  user: {}
+  user: {},
+  profile:{}
 };
 
 export default new Vuex.Store({

@@ -28,7 +28,7 @@ router.get('/test',async ctx =>{
 
 /** 
  * @route GET api/profiles
- * @desc 个人信息接口地址
+ * @desc 获取个人信息接口地址
  * @access 接口是私密的
 */
 
