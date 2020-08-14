@@ -24,7 +24,7 @@
           <li class="nav-item">
             <router-link v-show="!isLogin" class="nav-link" to="/login">登录</router-link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" v-if="user!=null">
             <a @click.prevent="logOut" v-show="isLogin" class="nav-link">
               <img :src="user.avatar" :alt="user.name" class="rounded-circle headerImg" />
               退出
@@ -59,8 +59,9 @@ export default {
       //删除token
       localStorage.removeItem("jwtToken");
       //干掉请求头
-      this.$store.dispatch("setIsAuthenticated", false);
-      this.$store.dispatch("setUser", {});
+      // this.$store.dispatch("setIsAuthenticated", false);
+      // this.$store.dispatch("setUser", {});
+      this.$store.dispatch("clearCurrentState");
       //页面跳转
       this.$router.push("/login");
     },

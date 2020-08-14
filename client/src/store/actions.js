@@ -9,3 +9,13 @@ export const setUser = ({ commit }, data) => {
 export const setProfile = ({ commit }, data) => {
   commit("setProfile", data);
 };
+
+export const setLoading = ({ commit }, data) => {
+  commit("setLoading", data);
+};
+
+export const clearCurrentState=({commit},data)=>{
+  commit("setProfile", null);
+  commit("setUser", null);
+  commit("setIsAuthenticated", false);
+}

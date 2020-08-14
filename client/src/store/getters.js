@@ -7,3 +7,6 @@ export const user = state => {
 export const profile = state => {
   return state.profile;
 };
+export const loading = state => {
+  return state.loading;
+};

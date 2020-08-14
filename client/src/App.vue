@@ -6,6 +6,7 @@
         <router-view></router-view>
       </keep-alive>
       <Footer id="home_page_Footer" />
+      <Loading v-show="loading" />
     </div>
   </div>
 </template>
@@ -15,12 +16,19 @@ import NavBar from "./components/NavBar";
 import Landing from "./components/Landing";
 import Footer from "./components/Footer";
 import jwt_decode from "jwt-decode";
+import Loading from "./components/common/Loading";
 export default {
   name: "App",
   components: {
     NavBar,
     Landing,
     Footer,
+    Loading,
+  },
+  computed: {
+    loading() {
+      return this.$store.getters.loading;
+    },
   },
   created() {
     if (localStorage.jwtToken) {
@@ -31,8 +39,9 @@ export default {
 
       //检测token是否过期
       if (decoded.exp < currentTime) {
-        this.$store.dispatch("setIsAuthenticated", false);
-        this.$store.dispatch("setUser", {});
+        // this.$store.dispatch("setIsAuthenticated", false);
+        // this.$store.dispatch("setUser", {});
+        this.$store.dispatch("clearCurrentState");
         this.$router.push("/login");
       } else {
         //分发actions
