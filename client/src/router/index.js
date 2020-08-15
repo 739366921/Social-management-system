@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
+import CreateProfile from "../components/CreateProfile.vue";
 import Dashboard from "../components/Dashboard.vue";
 import Landing from "../components/Landing.vue";
 import Login from "../components/Login.vue";
@@ -15,7 +16,8 @@ const route = new Router({
     { path: "/", component: Landing },
     { path: "/login", component: Login },
     { path: "/register", component: Register },
-    { path: "/dashboard", component: Dashboard }
+    { path: "/dashboard", component: Dashboard },
+    { path: "/create-profile", component: CreateProfile }
   ]
 });
 

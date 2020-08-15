@@ -3,12 +3,12 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class='display-4'>Dashboard</div>
-          <p class='lead text-muted' v-if="user!=null">Welcome{{user.name}}</p>
+          <div class="display-4">Dashboard</div>
+          <p class="lead text-muted" v-if="user!=null">Welcome{{user.name}}</p>
           <h4 v-if="profile!=null">Todo：数据显示</h4>
           <div v-else>
             <p>没有任何相关的个人信息，请添加您的个人信息</p>
-            <router-link to="'./create-profile" class="btn btn-lg btn-info" >添加个人信息</router-link>
+            <router-link to="/create-profile" class="btn btn-lg btn-info">添加个人信息</router-link>
           </div>
         </div>
       </div>
@@ -25,9 +25,9 @@ export default {
     };
   },
   computed: {
-    user(){
-      return this.$store.getters.user
-    }
+    user() {
+      return this.$store.getters.user;
+    },
   },
   methods: {
     getProfiledata() {
