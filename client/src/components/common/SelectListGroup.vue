@@ -2,7 +2,6 @@
   <div class="form-group">
     <select
       :name="name"
-      :placeholder="placeholder"
       class="form-control form-control-lg"
       :value="value"
       :class="{'is-invalid':error}"
@@ -21,7 +20,6 @@ export default {
   props: {
     value: String,
     name: String,
-    placeholder: String,
     error: String,
     info: String,
     options: Array,

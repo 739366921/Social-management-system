@@ -1,14 +1,19 @@
 import axios from "axios";
 import store from "../store";
 
-axios.interceptors.request.use(config => {
-  store.dispatch("setLoading", true);
-  if (localStorage.jwtToken) {
-    config.headers.Authorization = localStorage.jwtToken;
-    // console.log(config);
+axios.interceptors.request.use(
+  config => {
+    store.dispatch("setLoading", true);
+    if (localStorage.jwtToken) {
+      config.headers.Authorization = localStorage.jwtToken;
+      // console.log(config);
+    }
+    return config;
+  },
+  error => {
+    return Promise.reject(error);
   }
-  return config;
-});
+);
 axios.interceptors.response.use(
   response => {
     store.dispatch("setLoading", false);
@@ -16,6 +21,7 @@ axios.interceptors.response.use(
   },
   error => {
     store.dispatch("setLoading", false);
+    return Promise.reject(error);
   }
 );
 
