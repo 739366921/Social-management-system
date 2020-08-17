@@ -93,6 +93,9 @@ const profilesSchema=new Schema({
         QQ:{
             type:String,
         },
+        phone:{
+            type:String
+        },
         tengxunkt:{
             type:String,
         },

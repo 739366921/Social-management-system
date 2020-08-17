@@ -61,6 +61,8 @@ export default {
           this.$store.dispatch("setIsAuthenticated", !this.isEmpty(decoded));
           this.$store.dispatch("setUser", decoded);
 
+          this.errors = {};
+
           //页面跳转
           this.$router.push("./dashboard");
         })

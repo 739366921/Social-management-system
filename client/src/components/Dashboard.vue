@@ -6,7 +6,7 @@
           <div class="display-4">Dashboard</div>
           <p class="lead text-muted" v-if="user!=null">Welcome{{user.name}}</p>
           <h4 v-if="profile!=null">Todo：数据显示</h4>
-          <div v-else>
+          <div v-else class="mb-3">
             <p>没有任何相关的个人信息，请添加您的个人信息</p>
             <router-link to="/create-profile" class="btn btn-lg btn-info">添加个人信息</router-link>
           </div>
@@ -46,9 +46,15 @@ export default {
         });
     },
   },
-  created() {
-    this.getProfiledata();
-  },
+  // created() {
+  //   this.getProfiledata();
+  // },
+  
+  beforeRouteEnter (to, from, next) {
+    next(vm=>{
+      vm.getProfiledata()
+    })
+  }
 };
 </script>
 

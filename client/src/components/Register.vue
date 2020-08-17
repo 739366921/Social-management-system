@@ -76,11 +76,11 @@ export default {
           //进行mutations操作(同步)
           // this.$store.commit('setUser',res.data)
 
-          //进行actions异步操作分发
+          //进行actions异步操作分发，然后页面跳转
           this.$store.dispatch("setUser", res.data);
-
-          //成功后页面跳转
           this.$router.push("/login");
+
+          this.errors = {};
         })
         .catch((err) => {
           if (err.response.data) {

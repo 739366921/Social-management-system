@@ -18,13 +18,13 @@
               :error="errors.handle"
               info="此处的handle是在后端接口中需要用来查询数据的，通常写的是您email的名字"
             />
-          <SelectList 
-                  name="status"
-                  :error="errors.status"
-                  v-model="msgInfo.status"
-                  :options="options"
-                  info="请告知我们您目前所从事的岗位"
-                />
+            <SelectList
+              name="status"
+              :error="errors.status"
+              v-model="msgInfo.status"
+              :options="options"
+              info="请告知我们您目前所从事的岗位"
+            />
             <TextField
               type="type"
               name="company"
@@ -52,7 +52,7 @@
             <TextField
               type="type"
               name="skills"
-              placeholder="编程语言技能"
+              placeholder="*编程语言技能"
               v-model="msgInfo.skills"
               :error="errors.skills"
               info="请使用逗号隔开你所掌握的语言（例如：HTML，JS，CSS，PHP，JAVA）"
@@ -74,7 +74,10 @@
             />
 
             <div class="mb-3">
-              <button class="btn btn-light" @click.prevent="displaySocialInput=!displaySocialInput">添加社交账号</button>
+              <button
+                class="btn btn-light"
+                @click.prevent="displaySocialInput=!displaySocialInput"
+              >添加社交账号</button>
               <span class="text-muted">选项</span>
             </div>
             <div v-show="displaySocialInput">
@@ -94,6 +97,15 @@
                 :error="errors.QQ"
                 icon="fab fa-qq"
               />
+              <div v-show="displaySocialInput">
+                <InputGroup
+                  placeholder="手机号码"
+                  name="phone"
+                  v-model="msgInfo.phone"
+                  :error="errors.phone"
+                  icon="fas fa-phone-square"
+                />
+              </div>
             </div>
             <div v-show="displaySocialInput">
               <InputGroup
@@ -140,6 +152,7 @@ export default {
         githubusername: "",
         QQ: "",
         wechat: "",
+        phone: "",
         tengxunkt: "",
         wangyikt: "",
       },
@@ -168,7 +181,20 @@ export default {
   },
   methods: {
     submit() {
-      console.log(this.msgInfo);
+      // console.log(this.msgInfo);
+      this.$axios
+        .post("api/profiles", this.msgInfo)
+        .then((res) => {
+          this.$store.dispatch("setProfile", res.data);
+          this.$router.push("/dashboard");
+
+          this.errors = {};
+        })
+        .catch((err) => {
+          if (err.response.data) {
+            this.errors = err.response.data;
+          }
+        });
     },
   },
   components: {
