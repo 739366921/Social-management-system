@@ -64,11 +64,17 @@ export default {
 </script>
 
 <style>
+html{
+  width: 100%;
+}
+body{
+  width: 100%;
+}
 .home_page {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
 }
 
 .home_page_NavBar {

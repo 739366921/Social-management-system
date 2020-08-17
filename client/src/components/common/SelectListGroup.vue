@@ -7,10 +7,10 @@
       :class="{'is-invalid':error}"
       @input="$emit('input',$event.target.value)"
     >
-      <option v-for="(option,index) in options" :key="index" value="option.value">{{option.value}}</option>
+      <option v-for="option in options" :key="option.id" :value="option.value">{{option.value}}</option>
     </select>
     <div v-if="error" class="invalid-feedback">{{error}}</div>
-    <div v-if="info" class="text-muted small">{{info}}</div>
+    <div v-if="info" className="form-text text-muted small">{{info}}</div>
   </div>
 </template>
 
@@ -29,3 +29,5 @@ export default {
 
 <style scoped>
 </style>
+
+
