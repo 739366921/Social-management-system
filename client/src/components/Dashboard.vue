@@ -5,7 +5,12 @@
         <div class="col-md-12">
           <div class="display-4">Dashboard</div>
           <p class="lead text-muted" v-if="user!=null">Welcome{{user.name}}</p>
-          <h4 v-if="profile!=null">Todo：数据显示</h4>
+          <div v-if="profile!=null">
+            <ProfileActived />
+            <div class="mb-5">
+              <button class="btn btn-danger" @click.prevent="delectAccount">注销当前用户</button>
+            </div>
+          </div>
           <div v-else class="mb-3">
             <p>没有任何相关的个人信息，请添加您的个人信息</p>
             <router-link to="/create-profile" class="btn btn-lg btn-info">添加个人信息</router-link>
@@ -17,12 +22,16 @@
 </template>
 
 <script>
+import ProfileActived from "./common/ProfileActived";
 export default {
   name: "Dashboard",
   data() {
     return {
       profile: null,
     };
+  },
+  components: {
+    ProfileActived,
   },
   computed: {
     user() {
@@ -45,16 +54,28 @@ export default {
           this.$store.dispatch("setProfile", null);
         });
     },
+    delectAccount() {
+      this.$axios
+        .delete("/api/profiles")
+        .then((res) => {
+          this.profile = null;
+          this.$store.dispatch("clearCurrentState");
+          this.$router.push("/login");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
   },
   // created() {
   //   this.getProfiledata();
   // },
-  
-  beforeRouteEnter (to, from, next) {
-    next(vm=>{
-      vm.getProfiledata()
-    })
-  }
+
+  beforeRouteEnter(to, from, next) {
+    next((vm) => {
+      vm.getProfiledata();
+    });
+  },
 };
 </script>
 
