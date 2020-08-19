@@ -12,17 +12,17 @@ module.exports=function validatorExperienceInput(data){//data是外面传进来�
 
      if(validator.isEmpty(data.title))
     {
-        errors.title='title不能为空'
+        errors.title='工作内容不能为空'
     }
 
     if(validator.isEmpty(data.company))
     {
-        errors.company='company不能为空'
+        errors.company='公司不能为空'
     }
     
     if(validator.isEmpty(data.from))
     {
-        errors.from='from不能为空'
+        errors.from='入职时间不能为空'
     }
     
     

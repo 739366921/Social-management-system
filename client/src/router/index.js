@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
+import AddProfile from "../components/AddProfile.vue";
 import CreateProfile from "../components/CreateProfile.vue";
 import Dashboard from "../components/Dashboard.vue";
 import EditProfile from "../components/EditProfile.vue";
@@ -19,7 +20,8 @@ const route = new Router({
     { path: "/register", component: Register },
     { path: "/dashboard", component: Dashboard },
     { path: "/create-profile", component: CreateProfile },
-    { path: "/edit-profile", component: EditProfile }
+    { path: "/edit-profile", component: EditProfile },
+    { path: "/add-profile", component: AddProfile }
   ]
 });
 

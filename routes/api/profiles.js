@@ -221,6 +221,7 @@ router.post(
         location: ctx.request.body.location,
         from: ctx.request.body.from,
         to: ctx.request.body.to,
+        current: ctx.request.body.current,
         description: ctx.request.body.description,
       };
       profilesFields.experience.unshift(newExperience);

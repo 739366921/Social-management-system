@@ -5,10 +5,10 @@
       :name="name"
       :placeholder="placeholder"
       :value="value"
-      class="form-control form-control-lg"
       :disabled="disabled"
       :class="{'is-invalid':error}"
       @input="$emit('input',$event.target.value)"
+      class="form-control form-control-lg"
     />
     <div v-if="error" class="invalid-feedback">{{error}}</div>
     <div v-if="info" class="text-muted small">{{info}}</div>
@@ -18,10 +18,7 @@
 <script>
 export default {
   name: "TextFieldGroup",
-  model: {
-    prop: "value",
-    event: "input",
-  },
+
   props: {
     type: {
       type: String,
@@ -32,7 +29,7 @@ export default {
     placeholder: String,
     error: String,
     info: String,
-    disabled: String,
+    disabled: Boolean,
   },
 };
 </script>
