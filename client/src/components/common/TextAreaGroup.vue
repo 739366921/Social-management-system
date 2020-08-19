@@ -3,6 +3,7 @@
     <textarea
       :name="name"
       :placeholder="placeholder"
+      :value="value"
       class="form-control form-control-lg"
       :class="{'is-invalid':error}"
       @input="$emit('input',$event.target.value)"
@@ -20,6 +21,7 @@ export default {
     placeholder: String,
     error: String,
     info: String,
+    value: String,
   },
 };
 </script>

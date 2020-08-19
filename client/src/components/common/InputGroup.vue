@@ -10,6 +10,7 @@
       :placeholder="placeholder"
       class="form-control form-control-lg"
       :class="{'is-invalid':error}"
+      :value="value"
       @input="$emit('input',$event.target.value)"
     />
     <div v-if="error" class="invalid-feedback">{{error}}</div>
@@ -24,6 +25,7 @@ export default {
     name: String,
     placeholder: String,
     error: String,
+    value: String,
   },
 };
 </script>

@@ -28,6 +28,7 @@ export default {
   data() {
     return {
       profile: null,
+      // usertext:null
     };
   },
   components: {
@@ -35,6 +36,8 @@ export default {
   },
   computed: {
     user() {
+    //  this.usertext=this.$store.getters.user
+      // console.log(typeof(this.usertext));
       return this.$store.getters.user;
     },
   },
@@ -43,7 +46,7 @@ export default {
       this.$axios
         .get("api/profiles")
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           this.profile = res.data;
           //更新store
           this.$store.dispatch("setProfile", this.profile);

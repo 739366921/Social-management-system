@@ -4,6 +4,7 @@
       :type="type"
       :name="name"
       :placeholder="placeholder"
+      :value="value"
       class="form-control form-control-lg"
       :disabled="disabled"
       :class="{'is-invalid':error}"
@@ -31,7 +32,7 @@ export default {
     placeholder: String,
     error: String,
     info: String,
-    disabled:String
+    disabled: String,
   },
 };
 </script>

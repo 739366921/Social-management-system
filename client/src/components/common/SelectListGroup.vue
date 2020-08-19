@@ -10,7 +10,7 @@
       <option v-for="option in options" :key="option.id" :value="option.value">{{option.value}}</option>
     </select>
     <div v-if="error" class="invalid-feedback">{{error}}</div>
-    <div v-if="info" className="form-text text-muted small">{{info}}</div>
+    <div v-if="info" class="form-text text-muted small">{{info}}</div>
   </div>
 </template>
 
