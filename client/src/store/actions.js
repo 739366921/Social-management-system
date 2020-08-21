@@ -14,6 +14,10 @@ export const setLoading = ({ commit }, data) => {
   commit("setLoading", data);
 };
 
+export const setProfiles = ({ commit }, data) => {
+  commit("setProfiles", data);
+};
+
 export const clearCurrentState=({commit},data)=>{
   commit("setProfile", null);
   commit("setUser", null);

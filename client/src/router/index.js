@@ -7,6 +7,7 @@ import Dashboard from "../components/Dashboard.vue";
 import EditProfile from "../components/EditProfile.vue";
 import Landing from "../components/Landing.vue";
 import Login from "../components/Login.vue";
+import Profiles from "../components/Profiles.vue";
 import Register from "../components/Register.vue";
 
 Vue.use(Router);
@@ -24,6 +25,7 @@ const route = new Router({
     { path: "/edit-profile", component: EditProfile },
     { path: "/add-profile", component: AddProfile },
     { path: "/add-education", component: AddEducation },
+    { path: "/profiles", component: Profiles },
   ]
 });
 

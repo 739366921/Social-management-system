@@ -10,3 +10,6 @@ export const profile = state => {
 export const loading = state => {
   return state.loading;
 };
+export const profiles = state => {
+  return state.profiles;
+};

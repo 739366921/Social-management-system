@@ -49,7 +49,7 @@ export default {
       // console.log(this.user.email);
       // console.log(this.user.password);
       this.$axios
-        .post("api/user/login", this.user)
+        .post("/api/user/login", this.user)
         .then((res) => {
           const { token } = res.data;
           window.localStorage.setItem("jwtToken", token);
@@ -64,7 +64,7 @@ export default {
           this.errors = {};
 
           //页面跳转
-          this.$router.push("./dashboard");
+          this.$router.push("/dashboard");
         })
         .catch((err) => {
           if (err.response.data) {

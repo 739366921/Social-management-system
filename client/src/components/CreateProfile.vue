@@ -183,8 +183,11 @@ export default {
     submit() {
       // console.log(this.msgInfo);
       this.$axios
-        .post("api/profiles", this.msgInfo)
+        .post("/api/profiles", this.msgInfo)
         .then((res) => {
+          if(profile==null){
+             this.$store.dispatch("setProfile", null);
+          }
           this.$store.dispatch("setProfile", res.data);
           this.$router.push("/dashboard");
 

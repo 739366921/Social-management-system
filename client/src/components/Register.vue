@@ -69,7 +69,7 @@ export default {
       // console.log(this.$store.getters.isAuthenticated);
       // console.log(this.newUser)
       this.$axios
-        .post("api/user/register", this.newUser)
+        .post("/api/user/register", this.newUser)
         .then((res) => {
           // console.log(res.data);
 

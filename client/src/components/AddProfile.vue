@@ -110,6 +110,11 @@ export default {
         });
     },
   },
+   beforeRouteEnter(to, from, next) {
+    next((vm) => {
+      vm.msgInfo={};
+    });
+  },
   components: {
     TextField,
     TextArea,

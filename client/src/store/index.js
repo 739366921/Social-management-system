@@ -9,8 +9,9 @@ Vue.use(Vuex);
 const state = {
   isAuthenticated: false, // 是否授权
   user: {},
-  profile:{},
-  loading:false
+  profile: {},
+  loading: false,
+  profiles: []
 };
 
 export default new Vuex.Store({

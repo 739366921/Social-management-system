@@ -187,7 +187,7 @@ export default {
     submit() {
       // console.log(this.msgInfo);
       this.$axios
-        .post("api/profiles", this.msgInfo)
+        .post("/api/profiles", this.msgInfo)
         .then((res) => {
           this.$store.dispatch("setProfile", res.data);
           this.$router.push("/dashboard");
@@ -202,26 +202,26 @@ export default {
     },
     getCurrentProfile() {
       let profiles= this.$store.getters.profile;
-      // console.log(profiles[0]);
+      // console.log(profiles);
       //由于传过来的是数组所以只能这样写，其他地方getters传过来是object，怀疑是beforeRouteEnter的原因
-      profiles[0].company = profiles[0].company ? profiles[0].company : "";
-      profiles[0].githubusername = profiles[0].githubusername ? profiles[0].githubusername : "";
-      profiles[0].handle = profiles[0].handle ? profiles[0].handle : "";
-      profiles[0].location = profiles[0].location ? profiles[0].location : "";
-      profiles[0].status = profiles[0].status ? profiles[0].status : "";
-      profiles[0].website = profiles[0].website ? profiles[0].website : "";
-      profiles[0].bio = profiles[0].bio ? profiles[0].bio : "";
+      profiles.company = profiles.company ? profiles.company : "";
+      profiles.githubusername = profiles.githubusername ? profiles.githubusername : "";
+      profiles.handle = profiles.handle ? profiles.handle : "";
+      profiles.location = profiles.location ? profiles.location : "";
+      profiles.status = profiles.status ? profiles.status : "";
+      profiles.website = profiles.website ? profiles.website : "";
+      profiles.bio = profiles.bio ? profiles.bio : "";
 
-      profiles[0].skills = profiles[0].skills ? profiles[0].skills.join(","): "";
+      profiles.skills = profiles.skills ? profiles.skills.join(","): "";
 
-      profiles[0].social = profiles[0].social ? profiles[0].social : {};
-      profiles[0].wechat = profiles[0].social.wechat? profiles[0].social.wechat: "";
-      profiles[0].QQ = profiles[0].social.QQ ? profiles[0].social.QQ : "";
-      profiles[0].phone = profiles[0].social.phone ? profiles[0].social.phone : "";
-      profiles[0].tengxunkt = profiles[0].social.tengxunkt? profiles[0].social.tengxunkt: "";
-      profiles[0].wangyikt = profiles[0].social.wangyikt? profiles[0].social.wangyikt : "";
+      profiles.social = profiles.social ? profiles.social : {};
+      profiles.wechat = profiles.social.wechat? profiles.social.wechat: "";
+      profiles.QQ = profiles.social.QQ ? profiles.social.QQ : "";
+      profiles.phone = profiles.social.phone ? profiles.social.phone : "";
+      profiles.tengxunkt = profiles.social.tengxunkt? profiles.social.tengxunkt: "";
+      profiles.wangyikt = profiles.social.wangyikt? profiles.social.wangyikt : "";
 
-      this.msgInfo = profiles[0];
+      this.msgInfo = profiles;
     },
   },
   components: {

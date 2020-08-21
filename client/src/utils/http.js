@@ -8,7 +8,7 @@ axios.interceptors.request.use(
       config.headers.Authorization = localStorage.jwtToken;
       // console.log(config);
     }
-    return Promise.resolve(config);
+    return config;
   },
   error => {
     return Promise.reject(error);
@@ -17,7 +17,7 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
   response => {
     store.dispatch("setLoading", false);
-    return Promise.resolve(response);
+    return response;
   },
   error => {
     store.dispatch("setLoading", false);
