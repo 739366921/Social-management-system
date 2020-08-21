@@ -4,7 +4,11 @@
       <div class="row">
         <div class="col-md-12">
           <div class="display-4">Dashboard</div>
-          <p class="lead text-muted" v-if="user!=null">Welcome{{user.name}}</p>
+          <p class="lead text-muted" v-if="user!=null">
+            Welcome
+            <router-link v-if="profile==null" to="/profiles">{{user.name}}</router-link>
+            <router-link v-else  :to="`/profiles/${profile.handle}`">{{user.name}}</router-link>
+            </p>
           <div v-if="profile!=null">
             <!-- 编辑个人信息--添加个人经历--添加教育经历 -->
             <ProfileActived />
@@ -13,7 +17,8 @@
             <Experience :experience="profile[0].experience" @deleteExperience="deleteExperience" />
 
             <!-- 展示教育经历 -->
-            <!-- Todo: -->
+            <Education :education="profile[0].education" @deleteEducation="deleteEducation" />
+            
 
             <!-- 删除按钮 -->
             <div class="mb-5">
@@ -33,6 +38,7 @@
 <script>
 import ProfileActived from "./common/ProfileActived";
 import Experience from "./common/Experience";
+import Education from "./common/Education";
 export default {
   name: "Dashboard",
   data() {
@@ -44,6 +50,7 @@ export default {
   components: {
     ProfileActived,
     Experience,
+    Education
   },
   computed: {
     user() {
@@ -83,6 +90,19 @@ export default {
     deleteExperience(id) {
       this.$axios
         .delete(`/api/profiles/experience?experience_id=${id}`)
+        .then((res) => {
+          this.profile[0] = res.data
+          this.$router.go(0)
+          console.log(res.data);
+          console.log(this.profile[0]);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    deleteEducation(id) {
+      this.$axios
+        .delete(`/api/profiles/education?education_id=${id}`)
         .then((res) => {
           this.profile[0] = res.data
           this.$router.go(0)
