@@ -12,17 +12,17 @@ module.exports=function validatorEducationInput(data){//data是外面传进来�
 
      if(validator.isEmpty(data.school))
     {
-        errors.school='school不能为空'
+        errors.school='学校不能为空'
     }
 
     if(validator.isEmpty(data.degree))
     {
-        errors.degree='degree不能为空'
+        errors.degree='学历不能为空'
     }
     
     if(validator.isEmpty(data.fieldofstudy))
     {
-        errors.fieldofstudy='fieldofstudy不能为空'
+        errors.fieldofstudy='专业不能为空'
     }
     
     

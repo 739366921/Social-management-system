@@ -287,6 +287,7 @@ router.post(
         fieldofstudy: ctx.request.body.fieldofstudy,
         from: ctx.request.body.from,
         to: ctx.request.body.to,
+        current: ctx.request.body.current,
         description: ctx.request.body.description,
       };
       profilesFields.education.unshift(newEducation);
@@ -319,7 +320,7 @@ router.post(
 );
 
 /**
- * @route DELETE api/profiles/experience?experience_id=id
+ * @route DELETE api/profiles/experience?experience_id=id，例：http://localhost:5000/api/posts/comments?increase_id=5ede5a83964ce94fc8e5b9db&comment_id=5edf56330a41d9349018a589
  * @desc 删除工作经历信息接口地址
  * @access 接口是私密的
  */
