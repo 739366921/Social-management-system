@@ -37,7 +37,7 @@ router.get(
     // console.log(ctx.state.user)
     const profiles = await Profiles.find({
       user: ctx.state.user.id,
-    }).populate("users", ["name", "avatar"]); //跨表联查 , populate的作用是查到id之后获取它的字段，populate（'模板名字'，[模板内所要查的不同字段]）
+    }).populate("user", ["name", "avatar"]); //跨表联查 , populate的作用是查到id之后获取它的字段，populate（'模板名字'，[模板内所要查的不同字段]）
 
     // console.log(profile)
     if (profiles.length > 0) {
@@ -172,7 +172,7 @@ router.get("/handle", async (ctx) => {
 
 router.get("/all", async (ctx) => {
   const errors = {};
-  const profiles = await Profiles.find({}).populate("users", [
+  const profiles = await Profiles.find({}).populate("user", [//将users改为user就可以输出avatar了
     "name",
     "avatar",
   ]); //可以输出users表中含有name和avatar字段的值（暂时输出不了）

@@ -203,7 +203,6 @@ export default {
     getCurrentProfile() {
       let profiles= this.$store.getters.profile;
       // console.log(profiles);
-      //由于传过来的是数组所以只能这样写，其他地方getters传过来是object，怀疑是beforeRouteEnter的原因
       profiles.company = profiles.company ? profiles.company : "";
       profiles.githubusername = profiles.githubusername ? profiles.githubusername : "";
       profiles.handle = profiles.handle ? profiles.handle : "";

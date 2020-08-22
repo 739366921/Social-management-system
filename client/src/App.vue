@@ -2,9 +2,11 @@
   <div id="app">
     <div class="home_page">
       <NavBar id="home_page_NavBar" />
-      <keep-alive>
-        <router-view></router-view>
-      </keep-alive>
+      <div class="home_page_Landing">
+        <keep-alive>
+          <router-view></router-view>
+        </keep-alive>
+      </div>
       <Footer id="home_page_Footer" />
       <Loading v-show="loading" />
     </div>
@@ -64,10 +66,10 @@ export default {
 </script>
 
 <style>
-html{
+html {
   width: 100%;
 }
-body{
+body {
   width: 100%;
 }
 .home_page {
