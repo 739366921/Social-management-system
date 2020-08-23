@@ -7,7 +7,7 @@
           <p class="lead text-muted" v-if="user!=null">
             Welcome
             <router-link v-if="profile==null" to="/profiles">{{user.name}}</router-link>
-            <router-link v-else :to="`/profiles/${profile.handle}`">{{user.name}}</router-link>
+            <router-link v-else :to="`/profile/${profile.handle}`">{{user.name}}</router-link>
           </p>
           <div v-if="profile!=null">
             <!-- 编辑个人信息--添加个人经历--添加教育经历 -->

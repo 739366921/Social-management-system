@@ -149,7 +149,7 @@ router.get("/handle", async (ctx) => {
   const errors = {};
   const handle = ctx.query.handle;
   // console.log(handle)
-  const profiles = await Profiles.find({ handle: handle }).populate("users", [
+  const profiles = await Profiles.find({ handle: handle }).populate("user", [
     "name",
     "avatar",
     "email",

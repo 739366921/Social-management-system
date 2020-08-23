@@ -45,7 +45,7 @@ img {
   background: url("../assets/home_page.jpg") no-repeat;
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: 100%;
 }
 
 .landing-inner {

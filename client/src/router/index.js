@@ -7,6 +7,7 @@ import Dashboard from "../components/Dashboard.vue";
 import EditProfile from "../components/EditProfile.vue";
 import Landing from "../components/Landing.vue";
 import Login from "../components/Login.vue";
+import Profile from "../components/profile/Profile.vue";
 import Profiles from "../components/Profiles.vue";
 import Register from "../components/Register.vue";
 
@@ -26,6 +27,7 @@ const route = new Router({
     { path: "/add-profile", component: AddProfile },
     { path: "/add-education", component: AddEducation },
     { path: "/profiles", component: Profiles },
+    { path: "/profile/:handle", component: Profile }
   ]
 });
 
