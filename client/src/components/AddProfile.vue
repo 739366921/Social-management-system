@@ -2,7 +2,7 @@
   <div class="section add-profile">
     <div class="conationer p-3">
       <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-5 m-auto">
           <button class="btn btn-light mt-1" @click.prevent="$router.go(-1)">返回</button>
           <div class="display-4 text-center">添加个人经历</div>
           <div class="lead text-center">填写有关于工作的任何经验</div>
