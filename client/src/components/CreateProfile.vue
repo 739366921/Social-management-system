@@ -184,7 +184,7 @@ export default {
       // console.log(this.msgInfo);
       this.$axios
         .post("/api/profiles", this.msgInfo)
-        .then((res) => {
+        .then(res=> {
           if(profile==null){
              this.$store.dispatch("setProfile", null);
           }
@@ -193,7 +193,7 @@ export default {
 
           this.errors = {};
         })
-        .catch((err) => {
+        .catch(err=> {
           if (err.response.data) {
             this.errors = err.response.data;
           }

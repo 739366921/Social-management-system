@@ -67,7 +67,7 @@ export default {
           // this.profile = res.data[0];//由于接口传过来的是数组所以要直接获取他里面的数组对象
           //更新store
           this.profile = res.data[0];
-          this.$store.dispatch("setProfile", this.profile);
+          this.$store.dispatch("setProfile", res.data[0]);
         })
         .catch((err) => {
           console.log(err.response.data);
@@ -92,7 +92,7 @@ export default {
         .delete(`/api/profiles/experience?experience_id=${id}`)
         .then((res) => {
           this.profile = res.data;
-           this.$store.dispatch("setProfile", this.profile);
+          this.$store.dispatch("setProfile", this.profile);
           // this.$router.go(0)
           // console.log(res.data);
           // console.log(this.profile);
@@ -106,7 +106,7 @@ export default {
         .delete(`/api/profiles/education?education_id=${id}`)
         .then((res) => {
           this.profile = res.data;
-           this.$store.dispatch("setProfile", this.profile);
+          this.$store.dispatch("setProfile", this.profile);
           // console.log(res.data);
           // console.log(this.profile);
         })
