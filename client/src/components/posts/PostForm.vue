@@ -7,7 +7,6 @@
             <input type="submit" class="btn btn-dark col-2 m-3" value="提交" />
         </form>
     </div>
-    <div class="card card-body"></div>
   </div>
 </template>
 
@@ -37,6 +36,7 @@ export default {
         .then((res) => {
           this.errors = {};
           this.text = "";
+          this.$emit('updata')
         })
         .catch((err) => {
           this.errors = err.response.data;

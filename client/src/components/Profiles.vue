@@ -49,7 +49,7 @@ export default {
         .get("/api/profiles/all")
         .then((res) => {
           this.profiles = res.data;
-          console.log(res.data);
+        //   console.log(res.data);
           this.$store.dispatch("setProfiles", res.data);
         })
         .catch((err) => {
