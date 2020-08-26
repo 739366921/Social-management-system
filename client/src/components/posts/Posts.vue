@@ -4,9 +4,9 @@
       <div class="row">
         <div class="col-md-12 mt-2">
           <div>
-            <PostForm @updata="getPosts" />
+            <PostForm @update="getPosts" />
             <div class="card card-body mb-3">
-              <PostFeed v-for="post in posts" :key="post._id" :post="post" />
+              <PostFeed @update="getPosts" v-for="post in posts" :key="post._id" :post="post" />
             </div>
           </div>
         </div>

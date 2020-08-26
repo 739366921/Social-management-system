@@ -9,15 +9,19 @@
       <div class="col-8">
         <div class="mb-3">{{post.text}}</div>
         <div class="btnGroup">
-          <button class="btn btn-light m-1">
+          <button @click="likeClick(post._id)" class="btn btn-light m-1">
             <i class="fas fa-thumbs-up text-info"></i>
             <span class="badge badge-light">{{post.likes.length}}</span>
           </button>
-          <button class="btn btn-light m-1">
+          <button @click="unlikeClick(post._id)" class="btn btn-light m-1">
             <i class="text-secondary fas fa-thumbs-down"></i>
           </button>
           <a :href="post.html" class="btn btn-info m-1 text-white">鼓励留言</a>
-          <button v-if="user!=null&&user.id==post.user" class="btn btn-danger m-1">
+          <button
+            @click="deleteClick(post._id)"
+            v-if="user!=null&&user.id==post.user"
+            class="btn btn-danger m-1"
+          >
             <i class="fas fa-times"></i>
           </button>
         </div>
@@ -39,6 +43,38 @@ export default {
   computed: {
     user() {
       return this.$store.getters.user;
+    },
+  },
+  methods: {
+    deleteClick(id) {
+      this.$axios
+        .delete(`/api/posts?posts_id=${id}`)
+        .then((res) => {
+          this.$emit("update");
+        })
+        .catch((err) => {
+          console.log(err.response.data);
+        });
+    },
+    likeClick(id) {
+      this.$axios
+        .post(`/api/posts/like?like_id=${id}`)
+        .then((res) => {
+          this.$emit("update");
+        })
+        .catch((err) => {
+          console.log(err.response.data);
+        });
+    },
+    unlikeClick(id) {
+      this.$axios
+        .post(`/api/posts/unlike?unlike_id=${id}`)
+        .then((res) => {
+          this.$emit("update");
+        })
+        .catch((err) => {
+          console.log(err.response.data);
+        });
     },
   },
 };
