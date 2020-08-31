@@ -84,7 +84,7 @@ router.get("/all", async (ctx) => {
 });
 
 /**
- * @route GET api/posts？post_id=id
+ * @route GET api/posts？posts_id=id
  * @desc 获取所有留言信息接口地址
  * @access 接口是公开的
  */

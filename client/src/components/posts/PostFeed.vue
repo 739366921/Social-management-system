@@ -1,34 +1,33 @@
 <template>
-  <div class="container">
-    <div class="row mt-2">
-      <div class="col-4">
-        <img :src="post.avatar" alt class="img rounded-circle d-md-block m-auto" />
-        <br />
-        <div class="text-center">{{post.name}}</div>
-      </div>
-      <div class="col-8">
-        <div class="mb-3">{{post.text}}</div>
-        <div class="btnGroup">
-          <button @click="likeClick(post._id)" class="btn btn-light m-1">
-            <i class="fas fa-thumbs-up text-info"></i>
-            <span class="badge badge-light">{{post.likes.length}}</span>
-          </button>
-          <button @click="unlikeClick(post._id)" class="btn btn-light m-1">
-            <i class="text-secondary fas fa-thumbs-down"></i>
-          </button>
-          <a :href="post.html" class="btn btn-info m-1 text-white">鼓励留言</a>
-          <button
-            @click="deleteClick(post._id)"
-            v-if="user!=null&&user.id==post.user"
-            class="btn btn-danger m-1"
-          >
-            <i class="fas fa-times"></i>
-          </button>
+    <div class="card card-body mt-2">
+      <div class="row">
+        <div class="col-4">
+          <img :src="post.avatar" alt class="img rounded-circle d-md-block m-auto" />
+          <br />
+          <div class="text-center">{{post.name}}</div>
+        </div>
+        <div class="col-8">
+          <div class="mb-3">{{post.text}}</div>
+          <span v-if="showAction">
+            <button @click="likeClick(post._id)" class="btn btn-light m-1">
+              <i class="fas fa-thumbs-up text-info"></i>
+              <span class="badge badge-light">{{post.likes.length}}</span>
+            </button>
+            <button @click="unlikeClick(post._id)" class="btn btn-light m-1">
+              <i class="text-secondary fas fa-thumbs-down"></i>
+            </button>
+            <router-link :to="'/post/'+post._id" class="btn btn-info m-1 text-white">鼓励留言</router-link>
+            <button
+              @click="deleteClick(post._id)"
+              v-if="user!=null&&user.id==post.user"
+              class="btn btn-danger m-1"
+            >
+              <i class="fas fa-times"></i>
+            </button>
+          </span>
         </div>
       </div>
     </div>
-    <hr />
-  </div>
 </template>
 
 <script>
@@ -39,6 +38,7 @@ export default {
   },
   props: {
     post: Object,
+    showAction: Boolean,
   },
   computed: {
     user() {

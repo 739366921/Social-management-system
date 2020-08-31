@@ -7,6 +7,7 @@ import Dashboard from "../components/Dashboard.vue";
 import EditProfile from "../components/EditProfile.vue";
 import Landing from "../components/Landing.vue";
 import Login from "../components/Login.vue";
+import Post from "../components/posts/Post.vue";
 import Posts from "../components/posts/Posts.vue";
 import Profile from "../components/profile/Profile.vue";
 import Profiles from "../components/Profiles.vue";
@@ -29,7 +30,8 @@ const route = new Router({
     { path: "/add-education", component: AddEducation },
     { path: "/profiles", component: Profiles },
     { path: "/profile/:handle", component: Profile },
-    { path: "/feed", component: Posts }
+    { path: "/feed", component: Posts },
+    { path: "/post/:id", component: Post }
   ]
 });
 

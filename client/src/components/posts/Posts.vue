@@ -5,9 +5,13 @@
         <div class="col-md-12 mt-2">
           <div>
             <PostForm @update="getPosts" />
-            <div class="card card-body mb-3">
-              <PostFeed @update="getPosts" v-for="post in posts" :key="post._id" :post="post" />
-            </div>
+            <PostFeed
+              @update="getPosts"
+              v-for="post in posts"
+              :key="post._id"
+              :post="post"
+              :showAction="true"
+            />
           </div>
         </div>
       </div>
@@ -37,7 +41,7 @@ export default {
         .get("/api/posts/all")
         .then((res) => {
           this.posts = res.data;
-          console.log(this.posts);
+          //   console.log(this.posts);
         })
         .catch((err) => {
           this.errors = err.response.data;
