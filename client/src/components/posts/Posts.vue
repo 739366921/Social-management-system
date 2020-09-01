@@ -2,8 +2,14 @@
   <div class="feed">
     <div class="container">
       <div class="row">
-        <div class="col-md-12 mt-2">
+        <div class="col-2">
+          <button class="btn btn-light mt-2" @click.prevent="$router.go(-1)">返回</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 mt-2">
           <div>
+            <!-- 发表动态 -->
             <PostForm @update="getPosts" />
             <PostFeed
               @update="getPosts"

@@ -6,7 +6,7 @@
       </div>
       <div class="row m-auto">
         <div class="col-md-12">
-          <div class="display-4 text-center">开发者们</div>
+          <div class="display-4 text-center">交友卡片</div>
           <div class="lead text-center">让世界丰富多彩的你们</div>
           <div class="text-muted m-1">
             *头像要在

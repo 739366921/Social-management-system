@@ -2,7 +2,7 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container">
-      <router-link class="navbar-brand text-light" to="/">前端小羊</router-link>
+      <router-link class="navbar-brand text-light" to="/">前端羊仔</router-link>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -10,13 +10,13 @@
       <div class="collapse navbar-collapse" id="mobile-nav">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-           <router-link class="nav-link" to="/profiles">开发者</router-link>
+           <router-link class="nav-link" to="/profiles">所有用户</router-link>
           </li>
         </ul>
 
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <router-link v-show="isLogin" class="nav-link" to="/feed">留言</router-link>
+            <router-link v-show="isLogin" class="nav-link" to="/feed">发表动态</router-link>
           </li>
           <li class="nav-item">
             <router-link v-show="isLogin" class="nav-link" to="/dashboard">我的</router-link>

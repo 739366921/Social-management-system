@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="display-4">Dashboard</div>
+          <div class="display-4">我的信息</div>
           <p class="lead text-muted" v-if="user!=null">
             Welcome
             <router-link v-if="profile==null" to="/profiles">{{user.name}}</router-link>

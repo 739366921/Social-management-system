@@ -1,16 +1,19 @@
 <template>
   <div class="container">
-    <div class="col-12 row">
-      <div class="btn btn-light m-3 float-left" @click.prevent="$router.go(-1)">返回个人信息</div>
+    <div class="row">
+      <div class="btn btn-light m-3" @click.prevent="$router.go(-1)">返回个人信息</div>
     </div>
-
+    
     <ProfileHeader v-if="profile" :profile="profile" />
+
     <ProfileAbout v-if="profile" :profile="profile" />
+
     <ProfileCreds
       v-if="profile&&(profile.experience||profile.education)"
       :experience="profile.experience"
       :education="profile.education"
     />
+
     <ProfileGithub v-if="profile&&(profile.githubusername)" :username="profile.githubusername" />
   </div>
 </template>

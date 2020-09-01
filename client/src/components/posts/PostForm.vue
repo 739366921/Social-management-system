@@ -1,7 +1,7 @@
 <template>
     <div class="post-form mb-3">
       <div class="card card-info mb-2">
-        <div class="card-header bg-info text-white">留下您的评论</div>
+        <div class="card-header bg-info text-white">发表你的动态</div>
         <form @submit.prevent="submit">
           <TextArea
             class="col-12 mt-2 mb-0"

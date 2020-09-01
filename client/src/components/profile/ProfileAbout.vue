@@ -1,5 +1,4 @@
 <template>
-  <div class="container">
     <div class="card card-body bg-light col-md-12">
       <div class="row">
         <div class="col-md-12">
@@ -19,7 +18,6 @@
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>

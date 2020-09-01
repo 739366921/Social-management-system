@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
     <hr />
     <h3 class="mb-4">Github仓库信息</h3>
     <div v-for="repo in repos" :key="repo.id" class="card card-body mb-2">
