@@ -7,7 +7,7 @@
             v-if="profile.user"
             :src="profile.user.avatar"
             class="rounded-circle"
-            style="width:30%"
+            style="width:30% height:30%"
             alt
           />
         </div>

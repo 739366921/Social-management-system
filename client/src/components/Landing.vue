@@ -5,7 +5,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
-            <h1 class="display-3 mb-4">社交管理系统</h1>
+            <h1 class="display-3 mb-4">社交管理<br class="d-md-none" />系统</h1>
             <p class="lead">线上社交零距离，让远在千里变得近在咫尺 !</p>
             <hr />
             <router-link v-show="!isLogin" class="btn btn-lg btn-info mr-2" to="/register">注册</router-link>

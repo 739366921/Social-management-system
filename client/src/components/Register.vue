@@ -35,7 +35,7 @@
             v-model="newUser.password2"
             :error="errors.password2"
           />
-          <input type="submit" class="btn btn-info btn-block mt-4 mb-4" />
+          <input type="submit" class="btn btn-info btn-block mt-4 mb-4"  value="提交"/>
         </form>
       </div>
     </div>

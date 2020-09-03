@@ -20,7 +20,7 @@
             v-model="user.password"
             :error="errors.password"
           />
-          <input type="submit" class="btn btn-info btn-block mt-4 mb-4" />
+          <input type="submit" class="btn btn-info btn-block mt-4 mb-4" value="提交"/>
         </form>
       </div>
     </div>

@@ -13,7 +13,7 @@
             <TextField
               type="text"
               name="title"
-              placeholder="*工作内容"
+              placeholder="*工作岗位"
               v-model="msgInfo.title"
               :error="errors.title"
             />
@@ -36,6 +36,7 @@
             <TextField
               type="date"
               name="from"
+              placeholder="入职时间"
               v-model="msgInfo.from"
               :error="errors.from"
             />
@@ -43,6 +44,7 @@
             <TextField
               type="date"
               name="to"
+              placeholder="离职时间"
               v-model="msgInfo.to"
               :error="errors.to"
               :disabled="msgInfo.current"
@@ -81,22 +83,22 @@ export default {
   data() {
     return {
       msgInfo: {
-        title: '',
-        company: '',
-        location: '',
-        from: '',
-        to: '',
+        title: "",
+        company: "",
+        location: "",
+        from: "",
+        to: "",
         current: false,
-        description: '',
+        description: "",
       },
       errors: {},
     };
   },
   methods: {
     submit() {
-        if(this.msgInfo.current){
-            this.msgInfo.to='在职'
-        }
+      if (this.msgInfo.current) {
+        this.msgInfo.to = "在职";
+      }
       this.$axios
         .post("/api/profiles/experience", this.msgInfo)
         .then((res) => {
@@ -110,9 +112,9 @@ export default {
         });
     },
   },
-   beforeRouteEnter(to, from, next) {
+  beforeRouteEnter(to, from, next) {
     next((vm) => {
-      vm.msgInfo={};
+      vm.msgInfo = {};
     });
   },
   components: {

@@ -16,7 +16,7 @@ import Register from "../components/Register.vue";
 Vue.use(Router);
 
 const route = new Router({
-  mode: "history",
+  mode: "hash",
   linkActiveClass: "active",
   routes: [
     { path: "*", redirect: "/" },

@@ -1,6 +1,6 @@
 <template>
   <div class="section add-education">
-    <div class="conationer p-3 ">
+    <div class="conationer p-3">
       <div class="row">
         <div class="col-md-5 m-auto">
           <button class="btn btn-light mt-1" @click.prevent="$router.go(-1)">返回</button>
@@ -33,11 +33,18 @@
             />
 
             <h5>入学时间</h5>
-            <TextField type="date" name="from" v-model="msgInfo.from" :error="errors.from" />
+            <TextField
+              type="date"
+              name="from"
+              placeholder="入学时间"
+              v-model="msgInfo.from"
+              :error="errors.from"
+            />
             <h5>离校时间</h5>
             <TextField
               type="date"
               name="to"
+              placeholder="离校时间"
               v-model="msgInfo.to"
               :error="errors.to"
               :disabled="msgInfo.current"
@@ -106,9 +113,9 @@ export default {
         });
     },
   },
-    beforeRouteEnter(to, from, next) {
+  beforeRouteEnter(to, from, next) {
     next((vm) => {
-      vm.msgInfo={};
+      vm.msgInfo = {};
     });
   },
   components: {

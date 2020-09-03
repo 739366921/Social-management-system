@@ -11,7 +11,7 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {"/api": {
-      target: "http://localhost:5000/api/",
+      target: "http://www.sheepboss.xyz:5020/api/",
       changeOrigin: true,
       pathRewrite: {
         "^/api": ""
@@ -49,7 +49,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: './',
+    assetsPublicPath: '/',
 
     /**
      * Source Maps

@@ -47,7 +47,7 @@ export default {
       this.$axios
         .get(`/api/profiles/handle?handle=${handle}`)
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           this.profile = res.data;
         })
         .catch((err) => {

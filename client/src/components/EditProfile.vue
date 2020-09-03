@@ -12,10 +12,10 @@
             <TextField
               type="type"
               name="handle"
-              placeholder="*Profile handle"
+              placeholder="*用户名"
               v-model="msgInfo.handle"
               :error="errors.handle"
-              info="此处的handle是在后端接口中需要用来查询数据的，通常写的是您email的名字"
+              info="此处的handle是在后端接口中需要用来查询数据的，通常写的是您的用户名"
             />
             <SelectList
               name="status"
